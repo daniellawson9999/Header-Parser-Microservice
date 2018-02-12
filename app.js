@@ -6,7 +6,7 @@ const port = process.env.PORT || 3000;
 app.get('*',(req,res) => {
   let temp = req.headers['x-forwarded-for'];
   if(temp){
-    ip = temp.spllit(',')[0];
+    ip = temp.split(',')[0];
   }else{
     ip = req.connection.remoteAddress;
   }
