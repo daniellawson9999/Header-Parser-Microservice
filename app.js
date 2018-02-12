@@ -4,9 +4,12 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.get('*',(req,res) => {
-  const ip = req.headers['x-forwarded-for'] ||
-     req.connection.remoteAddress ||
-     req.socket.remoteAddress ||;
+  let temp = req.headers['x-forwarded-for'];
+  if(temp){
+    ip = temp.spllit(',')[0];
+  }else{
+    ip = req.connection.remoteAddress;
+  }
   let language = req.headers["accept-language"];
   language = language.slice(0,language.indexOf(','));
   let env = req.headers["user-agent"];
