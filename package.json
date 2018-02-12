@@ -19,6 +19,9 @@
     "pug": "2.0.0-rc.4",
     "serve-favicon": "^2.4.5"
   },
+  "engines": {
+    "node": "8.9.1"
+  },
   "devDependencies": {
     "nodemon": "^1.14.12"
   }
